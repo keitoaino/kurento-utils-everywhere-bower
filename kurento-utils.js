@@ -273,18 +273,12 @@ function WebRtcPeer(mode, options, callback) {
   }
 
   function setRemoteVideo() {
-    if (remoteVideo) {
-      var stream = pc.getRemoteStreams()[0];
-      var url = stream ? URL.createObjectURL(stream) : "";
-
-      remoteVideo.src = url;
-
-      console.log('Remote URL:', url);
-    }
+    if (remoteVideo)
+      attachMediaStream(self.remoteVideo, pc.getRemoteStreams()[0]);
   }
 
   this.showLocalVideo = function () {
-    localVideo.src = URL.createObjectURL(videoStream);
+    attachMediaStream(this.localVideo, videoStream);
     localVideo.muted = true;
   }
 
@@ -584,9 +578,9 @@ if (window.addEventListener) module.exports = require('./index');
 /**
  * This module contains a set of reusable components that have been found useful
  * during the development of the WebRTC applications with Kurento.
- * 
+ *
  * @module kurentoUtils
- * 
+ *
  * @copyright 2014 Kurento (http://kurento.org/)
  * @license LGPL
  */
@@ -1122,7 +1116,7 @@ if (typeof Object.create === 'function') {
 ;(function(isNode) {
 
 	/**
-	 * Merge one or more objects 
+	 * Merge one or more objects
 	 * @param bool? clone
 	 * @param mixed,... arguments
 	 * @return object
@@ -1135,7 +1129,7 @@ if (typeof Object.create === 'function') {
 	}, publicName = 'merge';
 
 	/**
-	 * Merge two or more objects recursively 
+	 * Merge two or more objects recursively
 	 * @param bool? clone
 	 * @param mixed,... arguments
 	 * @return object
@@ -1808,7 +1802,7 @@ if (typeof Object.create === 'function') {
             /(alcatel|geeksphone|huawei|lenovo|nexian|panasonic|(?=;\s)sony)[_\s-]?([\w-]+)*/i
                                                                                 // Alcatel/GeeksPhone/Huawei/Lenovo/Nexian/Panasonic/Sony
             ], [VENDOR, [MODEL, /_/g, ' '], [TYPE, MOBILE]], [
-                
+
             /(nexus\s9)/i                                                       // HTC Nexus 9
             ], [MODEL, [VENDOR, 'HTC'], [TYPE, TABLET]], [
 
@@ -1928,7 +1922,7 @@ if (typeof Object.create === 'function') {
             ], [VENDOR, MODEL, [TYPE, MOBILE]], [
             /(i-STYLE2.1)/i                                                     // i-mobile i-STYLE 2.1
             ], [[MODEL, 'i-STYLE 2.1'], [VENDOR, 'i-mobile'], [TYPE, MOBILE]], [
-            
+
             /(mobiistar touch LAI 512)/i                                        // mobiistar touch LAI 512
             ], [[MODEL, 'Touch LAI 512'], [VENDOR, 'mobiistar'], [TYPE, MOBILE]], [
 
@@ -2127,7 +2121,7 @@ if (typeof Object.create === 'function') {
     }
 
     // jQuery/Zepto specific (optional)
-    // Note: 
+    // Note:
     //   In AMD env the global scope should be kept clean, but jQuery is an exception.
     //   jQuery always exports to global scope, unless jQuery.noConflict(true) is used,
     //   and we should catch that.

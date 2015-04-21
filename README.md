@@ -1,6 +1,8 @@
 [![][KurentoImage]][website]
 
-Copyright © 2014 Kurento. Licensed under [LGPL License].
+Copyright © 2014 Kurento.
+Copyright © 2015 keitoaino.
+Licensed under [LGPL License].
 
 Kurento Utils for Bower
 =======================

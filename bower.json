@@ -1,15 +1,17 @@
 {
   "authors": [
-    "Kurento <info@kurento.org> (http://kurento.org)"
+    "Kurento <info@kurento.org> (http://kurento.org)",
+    "Keito Aino <keitoaino@gmail.com>"
   ],
-  "name": "kurento-utils",
+  "name": "kurento-utils-everywhere",
   "version": "6.0.0-dev",
-  "description": "Kurento Utilities",
+  "description": "Kurento Utilities with webrtc-everywhere plugin support",
   "license": "LGPL",
   "homepage": "http://www.kurento.org",
   "keywords": [
     "API",
     "Kurento",
-    "WebRTC"
+    "WebRTC",
+    "webrtc-everywhere"
   ]
 }
